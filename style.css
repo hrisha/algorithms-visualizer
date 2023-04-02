@@ -1,0 +1,31 @@
+#bars {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 36px;
+}
+
+.bar {
+    /* width: 20px; */
+    margin: 0 1px;
+    text-align: center;
+}
+.configurations {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid;
+    align-items: center;
+}
+.slider {
+    display: flex;
+    justify-content: space-between;
+}
+
+.color {
+    display: flex;
+    justify-content: space-between;
+}
+
+#algorithmsList{
+    width: 200px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sorting Algorithms Visualizer</title>
+</head>
+
+<body>
+    <h1>Sorting Algorithms Visualizer</h1>
+    <h2>Configurations</h2>
+
+    <div class="container">
+        <div class="configurations">
+            <div class="sliders">
+                <div class="slider">
+                    <label>Algorithm :</label>
+                    <select name="algorithmsList" id="algorithmsList">
+                        <option value="BUBBLE">Bubble Sort</option>
+                        <option value="SELECTION">Selection Sort</option>
+                        <option value="INSERTION">Insertion Sort</option>
+                    </select>
+                </div>
+                
+                <div class="slider">
+                    <label>Array Size :</label>
+                    <input type="range" min="1" max="100" value="10" class="slider" id="rangeSlider"><span id="rangeSliderValue"></span>
+                </div>
+                <div class="slider">
+                    <label>Bar Height Scale (px) :</label>
+                    <input type="range" min="1" max="20" value="6" class="slider" id="rangeHeightScale"><span id="rangeHeightScaleValue"></span>
+                </div>
+                <div class="slider">
+                    <label>Bar Width (px) :</label>
+                    <input type="range" min="10" max="100" value="20" class="slider" id="barWidth"><span id="barWidthValue"></span>
+                </div>
+                <div class="slider">
+                    <label>Speed of Moving (ms) :</label>
+                    <input type="range" min="100" max="5000" value="100" class="slider" id="rangeSpeed"><span id="rangeSpeedValue"></span>
+                </div>
+            </div>
+            <div class="buttons">
+                <button name="randomize" id="randomizeButton" >Randomize</button>
+                <button name="solve" id="solveButton">Solve</button>
+                <button name="reset" id="resetButton">Reset</button>
+            </div>
+            <div class="colors">
+                <div class="color">
+                    <label for="defaultBarColor">Default Bar Color:</label>
+                    <input type="color" id="defaultBarColor" name="defaultBarColor" value="#00bfff">
+                </div>
+                <div class="color">
+                    <label for="selectedBarColor">Selected Bar Color:</label>
+                    <input type="color" id="selectedBarColor" name="selectedBarColor" value="#ff0026">
+                </div>
+                <div class="color">
+                    <label for="sortedBarColor">Sorted Bar Color:</label>
+                    <input type="color" id="sortedBarColor" name="sortedBarColor" value="#ff7300">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="bars"></div>
+    <script src="./helpers.js" ></script>
+    <script src="./index.js" ></script>
+</body>
+
+</html>
