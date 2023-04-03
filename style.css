@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: flex-end;
     margin-top: 36px;
+    margin-bottom: 100px;
 }
 
 .bar {
@@ -28,4 +29,171 @@
 
 #algorithmsList{
     width: 200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+h2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.configurations {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.sliders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.slider {
+    margin: 0.5rem;
+    width: calc(33.3% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider label {
+    margin-bottom: 0.5rem;
+}
+
+.slider input[type="range"] {
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 1rem;
+    -webkit-appearance: none;
+}
+
+.slider input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    background: #d3d3d3;
+    border: none;
+    border-radius: 3px;
+}
+
+.slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    margin-top: -8.5px;
+}
+
+.slider input[type="range"]:focus {
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.buttons button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #3e8e41;
+}
+
+select {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    width: 200px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3e8e41;
+    box-shadow: 0 0 10px #3e8e41;
+}
+
+.colors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color label {
+    margin-bottom: 5px;
+}
+
+.color input {
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.color input:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.color input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }

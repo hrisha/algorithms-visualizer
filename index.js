@@ -97,19 +97,26 @@ randomizeButton.onclick = ()=> {
 }
 
 solveButton.onclick = ()=> {
+  if(array.length===0) {
+    alert("Please click Randomize button first to generate the array!");
+    return;
+  }
   let selectedAlgorithm = document.getElementById("algorithmsList").value ;
 
   solveButton.disabled=true;
   randomizeButton.disabled=true;
+  solveButton.style.backgroundColor = "gray";
+  randomizeButton.style.backgroundColor = "gray";
+  
   switch(selectedAlgorithm) {
       case 'BUBBLE':
           bubbleSort();
         break;
       case 'SELECTION':
-          selectionSort(array);
+          selectionSort();
         break;
       case 'INSERTION':
-        insertionSort(array);
+        insertionSort();
         break;
       default:
         bubbleSort();
@@ -163,58 +170,51 @@ async function bubbleSort() {
 }
 
 // Selection Sort Algorithm
-async function selectionSort(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
+async function selectionSort() {
+  for (let i = 0; i < array.length - 1; i++) {
     let minIndex = i;
-    for (let j = i + 1; j < arr.length; j++) {
+    for (let j = i + 1; j < array.length; j++) {
       setSelectedBars(j,minIndex)
       myPromise = await new Promise((resolve) => setTimeout(resolve, speed)); // Add a delay of 100 milliseconds
 
-      if (arr[j].value < arr[minIndex].value) {
+      if (array[j].value < array[minIndex].value) {
         minIndex = j;
       }
       resetSelectedBars();
     }
     if (minIndex !== i) {
-      let temp = arr[i];
-      arr[i] = arr[minIndex];
-      arr[minIndex] = temp;
+      let temp = array[i];
+      array[i] = array[minIndex];
+      array[minIndex] = temp;
     }
-    arr[i].sorted = true;
+    array[i].sorted = true;
     if (i==array.length - 2) { // last iteration
-      array[arr.length-1].sorted = true;
+      array[array.length-1].sorted = true;
     }
     renderBars(); 
   }
-  return arr;
 }
 
-// Insertion Sort
-async function insertionSort (arr) {
-  const len = arr.length
-  for (let i = 1; i < len; i++) {
+async function insertionSort() {
+  for (let i = 1; i < array.length; i++) {
+    let currentValue = array[i];
     let j;
-    const tmp = arr[i] // Copy of the current element.
-
-    /* Check through the sorted part and compare with the number in tmp. If large, shift the number */
-    for (j = i - 1; j >= 0 ; j--) {
-      setSelectedBars(j,i);
+    for (j = i - 1; j >= 0 && array[j].value > currentValue.value; j--) {
+      setSelectedBars(j,j+1);
       myPromise = await new Promise((resolve) => setTimeout(resolve, speed)); // Add a delay of 100 milliseconds
 
-      if(arr[j].value > tmp.value) {
-        
-        // Shift the number
-        arr[j + 1] = arr[j];
-        renderBars(); // Update the visualization after each swap
-        resetSelectedBars();
-      }
+      array[j + 1] = array[j];
+      renderBars(); // Update the visualization after each swap
+      resetSelectedBars();
     }
-    // Insert the copied number at the correct position
-    // in sorted part.
-    arr[j + 1] = tmp;
-    arr[i].sorted=true;
+    array[j + 1] = currentValue;
+    array[j + 1].sorted = true;
     renderBars(); 
   }
+  array.forEach(item=>item.sorted=true);
+  renderBars(); 
+
+  console.log(array);
 }
 // Render bars function
 function renderBars() {
